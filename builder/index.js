@@ -1,8 +1,11 @@
 var PersonBuilder = require('./PersonBuilder')
 
 // Employees
-var sue = new Person('Sue').makeEmployee().makeManager(60).build();
-var bill = new Person('Bill').makeEmployee().makePartTime(20).build();
+var sue = new PersonBuilder('Sue').makeEmployee().makeManager(60).build();
+//var sue = new Person('Sue', true, true, 60);
+var bill = new PersonBuilder('Bill').makeEmployee().makePartTime(20).build();
+//var bill = new Person('Bill', true, false, 20);
 
-// Shoppers
-var charles = new Person('Charles').withMoney(500).withList(['jeans', 'sunglasses']).build();
+// Shopper
+var charles = new PersonBuilder('Charles').withMoney(500).withList(['jeans', 'sunglasses']).build();
+//var charles = new Person('Charles', false, false, 0, 500, ['jeans', 'sunglasses']);
