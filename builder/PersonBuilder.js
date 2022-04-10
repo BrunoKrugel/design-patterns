@@ -1,4 +1,4 @@
-var Person = require('Person');
+const Person = require('./Person');
 
 class PersonBuilder{
 

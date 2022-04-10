@@ -11,3 +11,9 @@ Example of bad implementation
 Improved with Builder Pattern
 
 `var sue = new PersonBuilder('Sue').makeEmployee().makeManager(60).build();`
+
+## Decorator
+
+## Singleton
+
+The Singleton Pattern limits the number of instances of a particular object to just one. This single instance is called the singleton.
