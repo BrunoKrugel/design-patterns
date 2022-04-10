@@ -1,14 +1,76 @@
-var PersonBuilder = require('./PersonBuilder')
+function Shop() {
+    this.construct = function (builder) {
+        builder.step1();
+        builder.step2();
+        return builder.get();
+    }
+}
 
-// Employees
-var sue = new PersonBuilder('Sue').makeEmployee().makeManager(60).build();
-//var sue = new Person('Sue', true, true, 60);
-var bill = new PersonBuilder('Bill').makeEmployee().makePartTime(20).build();
-//var bill = new Person('Bill', true, false, 20);
+function CarBuilder() {
+    this.car = null;
 
-// Shopper
-var charles = new PersonBuilder('Charles')
-    .withMoney(500)
-    .withList(['jeans', 'sunglasses'])
-    .build();
-//var charles = new Person('Charles', false, false, 0, 500, ['jeans', 'sunglasses']);
+    this.step1 = function () {
+        this.car = new Car();
+    };
+
+    this.step2 = function () {
+        this.car.addParts();
+    };
+
+    this.get = function () {
+        return this.car;
+    };
+}
+
+function TruckBuilder() {
+    this.truck = null;
+
+    this.step1 = function () {
+        this.truck = new Truck();
+    };
+
+    this.step2 = function () {
+        this.truck.addParts();
+    };
+
+    this.get = function () {
+        return this.truck;
+    };
+}
+
+function Car() {
+    this.doors = 0;
+
+    this.addParts = function () {
+        this.doors = 4;
+    };
+
+    this.say = function () {
+        console.log("I am a " + this.doors + "-door car");
+    };
+}
+
+function Truck() {
+    this.doors = 0;
+
+    this.addParts = function () {
+        this.doors = 2;
+    };
+
+    this.say = function () {
+        console.log("I am a " + this.doors + "-door truck");
+    };
+}
+
+function run() {
+    var shop = new Shop();
+    var carBuilder = new CarBuilder();
+    var truckBuilder = new TruckBuilder();
+    var car = shop.construct(carBuilder);
+    var truck = shop.construct(truckBuilder);
+
+    car.say();
+    truck.say();
+}
+
+run();
