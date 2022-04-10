@@ -19,3 +19,7 @@ The Prototype Pattern creates new objects, but rather than creating non-initiali
 ## Abstract Factory
 
 An Abstract Factory has an abstracted theme which is shared by the newly created objects.
+
+## Factory
+
+The Factory Pattern allows the client to delegate object creation while still retaining control over which type to instantiate.
